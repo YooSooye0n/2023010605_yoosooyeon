@@ -1,0 +1,146 @@
+전산유체해석실습 9월 18일 수업
+
+1. SU2 - Ttorials - Compressible Flow - Inviscid Bump in a Channel을 눌러서 나오는 걸 오늘 할 거임
+2. C:\Users\CJU10316A\Desktop\전산유체해석실습\su2code-Tutorials-v8.3.0-0-gcccbbda\su2code-Tutorials-cccbbda\compressible_flow\Inviscid_Bump
+
+3. 파일 두 개 열어두기, cFD빼고 다 열기
+
+4. 매쉬 채널에 처음에 2여야함
+
+mark라고 검색했을 때 4개가 나와야함.
+그 아래에 소문자로 inlet이 있어야함.
+
+두번째 마크 겁색해서 MARKER_TAG= lower_wall 이어야함
+
+세번째로 MARKER_TAG= outlet 여야함
+
+5. inv파일이 SOLVER= EULER이어야함
+
+MATH_PROBLEM= DIRECT 인지 확인할 것
+
+% -------------------- COMPRESSIBLE FREE-STREAM DEFINITION --------------------%
+%
+% Mach number (non-dimensional, based on the free-stream values)
+MACH_NUMBER= 0.5
+%
+% Angle of attack (degrees, only for compressible flows)
+AOA= 0.0
+%
+% Side-slip angle (degrees, only for compressible flows)
+SIDESLIP_ANGLE= 0.0
+%
+% Free-stream pressure (101325.0 N/m^2 by default)  
+FREESTREAM_PRESSURE= 101300.0
+%
+% Free-stream temperature (288.15 K by default)
+FREESTREAM_TEMPERATURE= 288.0 -> 288.6 으로 변경
+
+
+마커가 두 개의 파일이 동일하게 적혀있어야함
+
+% Mesh input file
+MESH_FILENAME= mesh_channel_256x128.su2
+[ 파일이름이 동일한 지 볼 것 ]
+
+그 뒤에 cmd에서 명령어 mpiexec -n 4 SU2_CFD.exe inv_channel.cfg
+ 적당할 때 컨트롤 c 누르기
+
+이제 시작임!!!
+
+1. flow 로 파라뷰 열기
+
+어플라이 누르고 soild color를  Mach로 바꿔줌
+
+색을 터보로 바꿔주기
+
+컨투어 켜주고 ( 반원 모양 ) 어플라이
+
+격자 지우고 25로 맞춰주기
+
+컬러링을 데니시티 말고 mach로 해주기
+
+2. mach 를 pressure로 변경 ( 컨투어와 플로우 모두 )
+
+색을 다시 터보로 바꿔줌
+
+-> 선 색깔 바꾸기 = 컨투어에서 pressure 을 soild color로 바꾸기
+
+
+
+
+
+
+비행기 날개로 실습하기 SU2 - Tutorials - Compressoble Flow - inviscid ONERA M6 
+
+조건이 아마 이거인 듯?
+Freestream Pressure = 101325.0 N/m2
+Freestream Temperature = 288.15 K
+Freestream Mach number = 0.8395
+Angle of attack (AOA) = 3.06 deg
+
+C:\Users\CJU10316A\Desktop\전산유체해석실습\su2code-Tutorials-v8.3.0-0-gcccbbda\su2code-Tutorials-cccbbda\compressible_flow\Inviscid_ONERAM6
+
+ 혹시 모르니 셋업 확인하기 inv_ONERAM6 메모장
+
+
+이렇게 되어있으면 100개씩단위로 찍히는 거 cmd가
+% Writing solution frequency
+OUTPUT_WRT_FREQ= 100
+
+cmd 완료되면 서피스 먼저 들어가보기
+solid color 를 Pressure 로 바꿔주기
+색깔을 터보로 바꿔주기
+반원 옆에옆에옆에 있는 슬라이스 눌러주기
+
+
+
+
+숙제 있음 
+
+서피스에서 슬라이스하기
+와이 노말에 수치는 0.7 / 어플라이 / 슬라이스 라인에 색을 솔리드로 바꾸고
+검정색으로 변경
+
+속도 조건 0.88에 받음각은 0.2도 나머지는 같은 조건으로
+서피스 컨투어 쓰고 공간 이용해서 자른 면들 0.7 슬라이스 0.3 와이어 슬라이스 
+마무리를 오늘 수업에 했던 것처럼 하기
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
